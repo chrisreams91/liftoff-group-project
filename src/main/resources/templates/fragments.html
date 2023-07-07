@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-    <head>
+    <head th:fragment="head">
         <meta charset="UTF-8"/>
-        <title></title>
+        <title>Smart Planner</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-    <nav th:fragment="navigation-bar">
-<!--        Navigation Bar -->
-        <h3> Home | Tasks | Add a Task</h3>
+    <nav th:fragment="header">
+        <h1 th:text="${title}">Smart Planner</h1>
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="">Tasks</a></li>
+            <li class="nav-item"><a class="nav-link" href="">Add Task</a></li>
+        </ul>
     </nav>
-
     </body>
 </html>
