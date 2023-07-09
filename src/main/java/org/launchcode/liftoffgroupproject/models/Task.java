@@ -1,13 +1,18 @@
 package org.launchcode.liftoffgroupproject.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
+@Entity
 public class Task {
 
+    @Id
+    @GeneratedValue
     private int id;
-    private static int nextId = 1;
 
     @NotBlank(message = "Name is required")
     @Size(min = 3, max = 25, message = "Name must be between 3 and 25 characters")
@@ -23,9 +28,9 @@ public class Task {
         this.description = description;
         this.startDate = startDate;
         this.dueDate = dueDate;
-        this.id = nextId;
-        nextId++;
     }
+
+    public Task() {}
 
     public String getName() {
         return name;
