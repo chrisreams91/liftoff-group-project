@@ -14,9 +14,11 @@ import java.time.LocalDate;
 public class TaskController {
     @GetMapping("add")
     public String displayAddTaskForm(Model model) {
-//        model.addAttribute("title", new Task());
+        model.addAttribute("task", new Task());
 //        model.addAttribute("date", LocalDate.now());
         return "add";
     }
+
+
 
 }
