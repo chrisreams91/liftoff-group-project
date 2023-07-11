@@ -10,22 +10,21 @@
 <form method="post">
 <!--    <div class="form-group">-->
 <!--        <label th:for="title">Name</label>-->
-<!--        <input class="form-control" th:field="{name}" />-->
+<!--        <input class="form-control" th:field="${title}" />-->
 <!--    </div>-->
 <!--    <div class="form-group">-->
 <!--        <label th:for="date">Start Date</label>-->
-<!--        <input class="form-control" th:field="{date}" />-->
+<!--        <input class="form-control" type="date" th:field="*{date}" />-->
 <!--    </div>-->
 <!--    <div class="form-group">-->
 <!--        <label th:for="description">Description</label>-->
-<!--        <input class="form-control" th:field="{description}" />-->
+<!--        <input class="form-control" th:field="*{description}" />-->
 <!--    </div>-->
 <!--    <div class="form-group">-->
 <!--        <label th:for="date">Due Date</label>-->
-<!--        <input class="form-control" th:field="{date}" />-->
+<!--        <input class="form-control" type="date" th:field="*{date}" />-->
 <!--    </div>-->
 <!--    <button type="submit" class="btn btn-primary">Create Task</button>-->
-
 </form>
 </body>
 </html>
