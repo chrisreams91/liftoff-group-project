@@ -1,19 +1,88 @@
 package org.launchcode.liftoffgroupproject.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.time.DateTimeException;
-import java.util.Date;
+import java.util.Objects;
 
+@Entity
 public class Task {
-    @NotBlank(message = "A task title is required")
-    @Size(max = 30, message = "Title must be less than 30 characters")
-    private String title;
 
-    private DateTimeException startDate;
+    @Id
+    @GeneratedValue
+    private int id;
 
-    @Size(min = 5, max = 100)
+    @NotBlank(message = "Name is required")
+    @Size(min = 3, max = 25, message = "Name must be between 3 and 25 characters")
+    private String name;
+
+    @Size(max = 500, message = "Description cannot be longer than 500 characters")
     private String description;
+    private String startDate;
+    private String dueDate;
 
-    private DateTimeException dueDate;
+    public Task(String name, String description, String startDate, String dueDate) {
+        this.name = name;
+        this.description = description;
+        this.startDate = startDate;
+        this.dueDate = dueDate;
+    }
+
+    public Task() {}
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return id == task.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
