@@ -38,7 +38,7 @@ public class AuthenticationFilter implements AsyncHandlerInterceptor {
         }
 
         // The user is NOT logged in
-        response.sendRedirect("/register");
+        response.sendRedirect("/login");
         return false;
     }
 
