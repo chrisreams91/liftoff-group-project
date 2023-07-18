@@ -2,7 +2,11 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container">
-<header th:replace="fragments :: header"></header>
+<h1 th:text="${title}">Smart Planner</h1>
+<ul class="nav">
+    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+</ul>
+</nav>
 
 <form method="post">
     <div class="form-group">
