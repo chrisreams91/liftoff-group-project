@@ -6,12 +6,13 @@
         <div class="container">
             <h1>Smart Planner</h1>
             <nav th:replace="fragments :: header"></nav>
-            <ul>
-                <li>Tasks</li>
-                <li>Problems</li>
-                <li>Doing</li>
-                <li>Done</li>
-            </ul>
+
+            <div class="btn-group-vertical btn-group-lg">
+                <a class="btn btn-primary" href="" role="button">Tasks</a>
+                <a class="btn btn-danger" href="" role="button">Problems</a>
+                <a class="btn btn-secondary" href="" role="button">Doing</a>
+                <a class="btn btn-success" href="" role="button">Done</a>
+            </div>
         </div>
     </body>
 </html>
