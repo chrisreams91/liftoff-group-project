@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
@@ -38,5 +35,17 @@ public class TaskController {
 
        taskRepository.save(newTask);
        return "redirect:";
+    }
+    //new code below
+
+    @GetMapping("edit/{taskId}")
+    public String displayEditForm(Model model , @PathVariable int taskId){
+        model.addAttribute("task", "Edit Task");
+        model.addAttribute("task", taskRepository.findById(taskId));
+        return "edit";
+    }
+    @PostMapping("edit")
+    public String processEditForm(int taskId, String name, String description, String startDate, String dueDate) {
+        return "redirect:";
     }
 }
