@@ -44,8 +44,15 @@ public class TaskController {
         model.addAttribute("task", taskRepository.findById(taskId));
         return "edit";
     }
+
     @PostMapping("edit")
-    public String processEditForm(int taskId, String name, String description, String startDate, String dueDate) {
-        return "redirect:";
+    public String processEditForm(Integer id, String name, String description, String startDate, String dueDate) {
+        Task task = taskRepository.findById(id).get();
+        task.setName(name);
+        task.setDescription(description);
+        task.setStartDate(startDate);
+        task.setDueDate(dueDate);
+        taskRepository.save(task);
+        return "redirect:/list";
     }
 }
