@@ -8,11 +8,7 @@ import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
-public class Task {
-
-    @Id
-    @GeneratedValue
-    private int id;
+public class Task extends AbstractEntity {
 
     @NotBlank(message = "Name is required")
     @Size(min = 3, max = 25, message = "Name must be between 3 and 25 characters")
@@ -64,25 +60,9 @@ public class Task {
         this.dueDate = dueDate;
     }
 
-    public int getId() {
-        return id;
-    }
-
     @Override
     public String toString() {
         return name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Task task = (Task) o;
-        return id == task.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }
