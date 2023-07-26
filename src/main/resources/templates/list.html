@@ -20,7 +20,8 @@
           </thead>
           <tbody>
           <tr th:each="task: ${tasks}">
-              <th th:text="${task.name}" scope="row">name</th>
+              <th scope="row"><a th:href="'/task/taskDetails?taskId=' + ${task.id}" th:text="${task.name}"></a></th>
+<!--              //should this be th or td?-->
               <td th:text="${task.description}">description</td>
               <td th:text="${task.startDate}" >07/10/23</td>
               <td th:text="${task.dueDate}">07/14/23</td>
