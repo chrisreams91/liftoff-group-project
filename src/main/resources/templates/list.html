@@ -16,6 +16,7 @@
               <th scope="col">Description</th>
               <th scope="col">StartDate:</th>
               <th scope="col">DueDate:</th>
+              <th scope="col">Actions:</th>
           </tr>
           </thead>
           <tbody>
@@ -24,6 +25,9 @@
               <td th:text="${task.description}">description</td>
               <td th:text="${task.startDate}" >07/10/23</td>
               <td th:text="${task.dueDate}">07/14/23</td>
+              <td>
+                  <a th:href="@{/edit/{id}(id=${task.id})}">Edit</a>
+              </td>
           </tr>
           </tbody>
       </table>
