@@ -24,19 +24,6 @@ public class SingleTaskController {
 
         Optional<Task> result = taskRepository.findById(taskId);
 
-//        if (result.isEmpty()) {
-//            model.addAttribute("title", "Invalid Task ID: " + taskId);
-//        } else {
-//            Task task = result.get();
-////            model.addAttribute("title", task.getName() + " Details");
-//            model.addAttribute("title", task.getName() + " Details");
-//            model.addAttribute("task", task);
-////            model.addAttribute("tags", "task.getTasks());
-//        }
-//
-//            return "taskDetails/taskDetails";
-
-        //this code works
         if (taskId == null) {
             model.addAttribute("title", "All Tasks");
             model.addAttribute("tasks", taskRepository.findAll());
@@ -44,25 +31,6 @@ public class SingleTaskController {
             model.addAttribute("task", taskRepository.findById(taskId).get());
         }
             return "taskDetails/taskDetails";
-
-//            if (taskId == null) {
-//                model.addAttribute("title", "All Tasks");
-//                model.addAttribute("tasks", taskRepository.findAll());
-//            } else {
-////            Optional<TaskCategory> result = taskCategoryRepository.findById(taskId);
-////            if (result.isEmpty()) {
-////                model.addAttribute("title", "Invalid Category Id: " + categoryId);
-////            } else {
-////                TaskCategory category = result.get();
-////                model.addAttribute("title", "Tasks in Category: " + category.getName());
-////                model.addAttribute("tasks", category.getTasks());
-////            }
-//                model.addAttribute("task", taskRepository.findById(taskId).get());
-////            model.addAttribute("tasks", category.getTasks());
-
-
-//    @GetMapping("")
-//    public String displayTaskDetails() {return "taskDetails/taskDetails";}
         }
 
     }
