@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 
-<head th:replace="fragments :: head">
-<!--    <meta charset="UTF-8"/>-->
-<!--    <title>Title</title>-->
-</head>
+<head th:replace="fragments :: head"></head>
 
 <body>
-    <div class="container body-content">
+    <div class="container">
         <nav th:replace="fragments :: header"></nav>
-
-        <h1 class="centered" th:text = "${task.name}">Default Name</h1>
-
+    </div>
+    <div class="container body-content">
+        <h1 class="centered" th:text="${task.name}"></h1>
         <ol type="circle" class="list-group">
-            <li class="list-group-item active"><span th:text="${task.description}"></span> </li>
-            <li  class="list-group-item"><span>Task Id : </span><span th:text="${task.id}"></span></li>
-            <li class="list-group-item" th:text="${task.startDate}">Date Started</li>
-            <li class="list-group-item" th:text="${task.dueDate}">Date Completed</li>
+            <li class="list-group-item active"><span th:text="${task.description}"></span></li>
+            <li  class="list-group-item"><span>Task ID: </span><span th:text="${task.id}"></span></li>
+            <li class="list-group-item"><span>Start Date: </span><span th:text="${task.startDate}">Date Started></span></li>
+            <li class="list-group-item"><span>Due Date: </span><span th:text="${task.dueDate}">Date Completed></span></li>
         </ol>
     </div>
 </body>
