@@ -27,6 +27,7 @@
               <td th:text="${task.dueDate}">07/14/23</td>
               <td>
                   <a th:href="@{/edit/{id}(id=${task.id})}">Edit</a>
+                  <a th:href="@{/delete/{id}(id=${task.id})}">Delete</a>
               </td>
           </tr>
           </tbody>

@@ -37,6 +37,26 @@ public class TaskController {
        return "redirect:";
     }
 
+    @GetMapping("delete/{taskId}")
+    public String displayDeleteTask(Model model, @PathVariable int taskId){
+        model.addAttribute("task", "Delete Task");
+        model.addAttribute("task", taskRepository.findById(taskId));
+        return"delete";
+    }
+
+
+    @PostMapping("delete")
+    public String processDeleteTaskForm(Integer id, String name, String description, String startDate, String dueDate){
+        Task deleteTask = taskRepository.findById(id).get();
+        deleteTask.setName(name);
+        deleteTask.setDescription(description);
+        deleteTask.setStartDate(startDate);
+        deleteTask.setDueDate(dueDate);
+        taskRepository.deleteById(id);
+
+        return"redirect:/list";
+    }
+
     @GetMapping("edit/{taskId}")
     public String displayEditForm(Model model , @PathVariable int taskId){
         model.addAttribute("task", "Edit Task");
