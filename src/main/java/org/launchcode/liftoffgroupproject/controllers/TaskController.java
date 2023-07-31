@@ -36,7 +36,6 @@ public class TaskController {
            LocalDate dueDate = newTask.getDueDate();
            return "add";
        }
-
        taskRepository.save(newTask);
        return "redirect:";
     }

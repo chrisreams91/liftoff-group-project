@@ -23,6 +23,7 @@ public class Task extends AbstractEntity {
     private String description;
 
 //    @DateTimeFormat(pattern = "MM-dd-yyyy")
+
     private LocalDate startDate;
 
 //    @DateTimeFormat(pattern = "MM-dd-yyyy")
