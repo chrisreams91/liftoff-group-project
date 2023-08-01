@@ -37,6 +37,6 @@ public class TaskController {
            return "add";
        }
        taskRepository.save(newTask);
-       return "redirect:";
+       return "redirect:/list";
     }
 }

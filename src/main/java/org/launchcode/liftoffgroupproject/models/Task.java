@@ -22,14 +22,14 @@ public class Task extends AbstractEntity {
     @Size(max = 500, message = "Description cannot be longer than 500 characters")
     private String description;
 
-//    @DateTimeFormat(pattern = "MM-dd-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
 
     private LocalDate startDate;
 
-//    @DateTimeFormat(pattern = "MM-dd-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
 
-    public Task(String name, String description, String startDate, String dueDate) {
+    public Task(String name, String description, LocalDate startDate, LocalDate dueDate) {
         this.name = name;
         this.description = description;
     }
