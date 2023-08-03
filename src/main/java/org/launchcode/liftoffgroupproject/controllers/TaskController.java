@@ -46,7 +46,7 @@ public class TaskController {
 
 
     @PostMapping("delete")
-    public String processDeleteTaskForm(Integer id, String name, String description, String startDate, String dueDate){
+    public String processDeleteTaskForm(Integer id, String name, String description, LocalDate startDate, LocalDate dueDate){
         Task deleteTask = taskRepository.findById(id).get();
         deleteTask.setName(name);
         deleteTask.setDescription(description);
@@ -65,7 +65,7 @@ public class TaskController {
     }
 
     @PostMapping("edit")
-    public String processEditForm(Integer id, String name, String description, String startDate, String dueDate) {
+    public String processEditForm(Integer id, String name, String description, LocalDate startDate, LocalDate dueDate) {
         Task task = taskRepository.findById(id).get();
         task.setName(name);
         task.setDescription(description);
