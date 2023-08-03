@@ -22,7 +22,6 @@ public class TaskController {
     @GetMapping("add")
     public String displayAddTaskForm(Model model) {
         model.addAttribute("task", new Task());
-//        model.addAttribute("date", LocalDate.now());
         return "add";
     }
 
@@ -30,11 +29,12 @@ public class TaskController {
     public String processAddTaskForm (@ModelAttribute @Valid Task newTask, Model model, Errors errors){
        if(errors.hasErrors()) {
            model.addAttribute("task", "Add Task");
+           LocalDate startDate = newTask.getStartDate();
+           LocalDate dueDate = newTask.getDueDate();
            return "add";
        }
-
        taskRepository.save(newTask);
-       return "redirect:";
+       return "redirect:/list";
     }
 
     @GetMapping("delete/{taskId}")

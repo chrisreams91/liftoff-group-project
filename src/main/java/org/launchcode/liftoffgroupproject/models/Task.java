@@ -1,10 +1,15 @@
 package org.launchcode.liftoffgroupproject.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
+import java.time.DateTimeException;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -16,14 +21,17 @@ public class Task extends AbstractEntity {
 
     @Size(max = 500, message = "Description cannot be longer than 500 characters")
     private String description;
-    private String startDate;
-    private String dueDate;
 
-    public Task(String name, String description, String startDate, String dueDate) {
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
+    private LocalDate startDate;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dueDate;
+
+    public Task(String name, String description, LocalDate startDate, LocalDate dueDate) {
         this.name = name;
         this.description = description;
-        this.startDate = startDate;
-        this.dueDate = dueDate;
     }
 
     public Task() {}
@@ -44,25 +52,24 @@ public class Task extends AbstractEntity {
         this.description = description;
     }
 
-    public String getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getDueDate() {
-        return dueDate;
-    }
-
-    public void setDueDate(String dueDate) {
-        this.dueDate = dueDate;
-    }
-
     @Override
     public String toString() {
         return name;
     }
 
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
+    }
 }
