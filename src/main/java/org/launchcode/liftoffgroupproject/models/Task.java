@@ -3,6 +3,7 @@ package org.launchcode.liftoffgroupproject.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Objects;
@@ -19,14 +20,27 @@ public class Task extends AbstractEntity {
     private String startDate;
     private String dueDate;
 
-    public Task(String name, String description, String startDate, String dueDate) {
+    @ManyToOne
+    private User user;
+
+    public Task(User user, String name, String description, String startDate, String dueDate) {
+        super();
         this.name = name;
         this.description = description;
         this.startDate = startDate;
         this.dueDate = dueDate;
+        this.user = user;
     }
 
     public Task() {}
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getName() {
         return name;

@@ -17,6 +17,7 @@
               <th scope="col">StartDate:</th>
               <th scope="col">DueDate:</th>
               <th scope="col">Actions:</th>
+              <th scope="col">Notification</th>
           </tr>
           </thead>
           <tbody>
@@ -28,6 +29,7 @@
               <td>
                   <a th:href="@{/edit/{id}(id=${task.id})}">Edit</a>
               </td>
+              <td><button class="btn btn-primary">Notify</button></td>
           </tr>
           </tbody>
       </table>
