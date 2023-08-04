@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8">
+</head>
+    <body>
+    <nav th:replace="fragments :: header"></nav>
+<h1>Profile</h1>
+
+
+    <div class="media">
+        <!--    add profile picture here @ src-->
+        <img class="align-self-start mr-3" src="..." alt="Generic placeholder image">
+        <div class="media-body">
+            <!--    username-->
+            <!--    <p th:text="${}"></p>-->
+            <h5 class="mt-0">Name or Username</h5>
+            <p> You are doing a great job completing your tasks!</p>
+        </div>
+    </div>
+
+
+    <h3>Pending Tasks:</h3>
+<!--    list of task names here (need to add - click to specific task)-->
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" th:each="task :${tasks}" th:text="${task}"></li>
+    </ul>
+
+
+    <p>----------</p>
+
+    <a class="btn btn-primary" href="/list" role="button">Tasks</a>
+
+
+
+
+    </body>
+</html>
