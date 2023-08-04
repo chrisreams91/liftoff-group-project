@@ -29,9 +29,14 @@ public class Task extends AbstractEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
 
+    private TaskProgressEnum taskProgressEnum;
+
+
+
     public Task(String name, String description, LocalDate startDate, LocalDate dueDate) {
         this.name = name;
         this.description = description;
+        this.taskProgressEnum = TaskProgressEnum.TODO;
     }
 
     public Task() {}
@@ -51,6 +56,11 @@ public class Task extends AbstractEntity {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public TaskProgressEnum getTaskProgressEnum() { return taskProgressEnum; }
+
+    public void setTaskProgressEnum(TaskProgressEnum taskProgressEnum) { this.taskProgressEnum = taskProgressEnum; }
+
 
     @Override
     public String toString() {
