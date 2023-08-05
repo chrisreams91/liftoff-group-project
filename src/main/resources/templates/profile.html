@@ -5,35 +5,37 @@
 </head>
     <body>
     <nav th:replace="fragments :: header"></nav>
-<h1>Profile</h1>
-
-
+<h1>User Profile</h1>
+    <hr>
     <div class="media">
-        <!--    add profile picture here @ src-->
-        <img class="align-self-start mr-3" src="..." alt="Generic placeholder image">
+        <img class="align-self-start mr-3" th:src="@{/images/user.png}" alt="Generic placeholder image">
         <div class="media-body">
-            <!--    username-->
-            <!--    <p th:text="${}"></p>-->
-            <h5 class="mt-0">Name or Username</h5>
+            <h5 class="mt-0">Welcome Back</h5>
+            <p th:text="${user.firstName}">Name</p>
+            <p th:text="${user.username}">Username</p>
+<!--            email-->
+<!--p            <p th:text="${user.email}">Email</p>-->
+
+
+            <ul class="list-group">
+<!--                <li class="list-group-item" th:each="user :${users}" th:text="${user}"></li>-->
+                <li class="list-group-item list-group-item-primary" th:each="user :${users}" th:text="${user.firstName}"></li>
+                <li class="list-group-item list-group-item-success" th:each="user :${users}" th:text="${user.username}"></li>
+            </ul>
+
+            <br>
             <p> You are doing a great job completing your tasks!</p>
+<!--            if time allows add this:-->
+<!--            <p>You have 13 pending tasks</p>-->
+            <a class="btn btn-dark" href="/list" role="button">View All Tasks</a>
+            <hr>
         </div>
     </div>
-
-
-    <h3>Pending Tasks:</h3>
-<!--    list of task names here (need to add - click to specific task)-->
-
+    <h3> Task Summary:</h3>
+<!--    list of task names here -->
     <ul class="list-group list-group-flush">
         <li class="list-group-item" th:each="task :${tasks}" th:text="${task}"></li>
     </ul>
-
-
-    <p>----------</p>
-
-    <a class="btn btn-primary" href="/list" role="button">Tasks</a>
-
-
-
-
+    <br>
     </body>
 </html>

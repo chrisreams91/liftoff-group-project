@@ -21,11 +21,20 @@ public class ProfileController {
 
    @GetMapping("")
        public String Profile(Model model, User user, Integer taskId) {
+
+       model.addAttribute("users", userRepository.findAll());
+
+       //get username
        String uName = user.getUsername();
        model.addAttribute("username", "username");
-       model.addAttribute("username", userRepository.findByUsername(uName));
+//       model.addAttribute("username", userRepository.findByUsername(uName));
+
+       //get first name
+       model.addAttribute("first name", "firstName");
+
+       //list all tasks
        model.addAttribute("tasks", taskRepository.findAll());
-//       model.addAttribute("tasks", taskRepository.findById(taskId));
+
        return "profile";
    }
 }
