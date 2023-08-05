@@ -22,7 +22,8 @@ dependencies {
 	implementation 'mysql:mysql-connector-java:8.0.32'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.security:spring-security-crypto'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.jetbrains:annotations:23.0.0'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

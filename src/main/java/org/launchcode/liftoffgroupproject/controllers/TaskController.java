@@ -1,6 +1,7 @@
 package org.launchcode.liftoffgroupproject.controllers;
 
 
+import org.jetbrains.annotations.NotNull;
 import org.launchcode.liftoffgroupproject.data.TaskRepository;
 import org.launchcode.liftoffgroupproject.data.UserRepository;
 import org.launchcode.liftoffgroupproject.models.Task;
@@ -20,6 +21,7 @@ import java.util.Optional;
 @RequestMapping("")
 public class TaskController {
 
+    @Autowired
     private AuthenticationController authenticationController;
 
 
@@ -37,18 +39,18 @@ public class TaskController {
     }
 
     @PostMapping("add")
-    public String processAddTaskForm (@ModelAttribute @Valid Task newTask, Model model, Errors errors, HttpSession session){
+    public String processAddTaskForm (@ModelAttribute @Valid Task newTask, Model model, @NotNull Errors errors, HttpSession session){
        if(errors.hasErrors()) {
            model.addAttribute("task", "Add Task");
            return "add";
        }
 
-//        Optional<User> result = userRepository.findById(authenticationController.getUserFromSession(session).getId());
-//        if (result.isPresent()) {
-//            User user = result.get();
-//            newTask.setUser(user);
-//        }
-        authenticationController.getUserFromSession(session);
+        Optional<User> result = userRepository.findById(authenticationController.getUserFromSession(session).getId());
+        if (result.isPresent()) {
+            User user = result.get();
+            newTask.setUser(user);
+        }
+
         taskRepository.save(newTask);
        return "redirect:";
     }
