@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.Optional;
@@ -18,6 +19,9 @@ import java.util.Optional;
 @Controller
 @RequestMapping("")
 public class TaskController {
+
+    private AuthenticationController authenticationController;
+
 
     @Autowired
     private TaskRepository taskRepository;
@@ -33,19 +37,19 @@ public class TaskController {
     }
 
     @PostMapping("add")
-    public String processAddTaskForm (@ModelAttribute @Valid Task newTask,Model model, Errors errors){
+    public String processAddTaskForm (@ModelAttribute @Valid Task newTask, Model model, Errors errors, HttpSession session){
        if(errors.hasErrors()) {
            model.addAttribute("task", "Add Task");
            return "add";
        }
 
-//        Optional<User> result = userRepository.findById(userId);
+//        Optional<User> result = userRepository.findById(authenticationController.getUserFromSession(session).getId());
 //        if (result.isPresent()) {
 //            User user = result.get();
 //            newTask.setUser(user);
 //        }
-
-       taskRepository.save(newTask);
+        authenticationController.getUserFromSession(session);
+        taskRepository.save(newTask);
        return "redirect:";
     }
 
