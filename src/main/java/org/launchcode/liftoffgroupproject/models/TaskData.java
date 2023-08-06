@@ -32,12 +32,12 @@ public class TaskData {
         String theValue;
         if (fieldName.equals("due date")){
             theValue = task.getDueDate().toString();
-        } else if (fieldName.equals("description")){
-            theValue = task.getDescription();
+        } else if (fieldName.equals("name")){
+            theValue = task.getName();
         } else if (fieldName.equals("start date")){
             theValue = task.getStartDate().toString();
         } else {
-            theValue = task.getName();
+            theValue = task.getDescription();
         }
 
         return theValue;
