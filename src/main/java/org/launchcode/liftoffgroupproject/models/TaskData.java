@@ -42,4 +42,26 @@ public class TaskData {
 
         return theValue;
     }
+
+    public static ArrayList<Task> findByValue(String value, Iterable<Task> allTasks) {
+        String lower_val = value.toLowerCase();
+
+        ArrayList<Task> results = new ArrayList<>();
+
+        for (Task task : allTasks) {
+
+            if (task.getName().toLowerCase().contains(lower_val)) {
+                results.add(task);
+            } else if (task.getDueDate().toString().contains(lower_val)) {
+                results.add(task);
+            } else if (task.getStartDate().toString().contains(lower_val)) {
+                results.add(task);
+            } else if (task.getDescription().toLowerCase().contains(lower_val)) {
+                results.add(task);
+            }
+
+        }
+
+        return results;
+    }
 }
