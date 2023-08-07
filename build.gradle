@@ -25,6 +25,10 @@ dependencies {
     implementation 'org.jetbrains:annotations:23.0.0'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation platform('software.amazon.awssdk:bom:2.5.29')
+	implementation 'software.amazon.awssdk:sns'
+	implementation 'software.amazon.awssdk:s3'
+	implementation 'com.sun.mail:javax.mail'
 }
 
 tasks.named('test') {
