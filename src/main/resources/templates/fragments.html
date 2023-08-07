@@ -4,9 +4,17 @@
         <meta charset="UTF-8"/>
         <title>Smart Planner</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="scripts.js"></script>
     </head>
     <body>
+    <header th:fragment="darkToggle">
+        <div class="switch">
+            <div class="flicker"></div>
+            <div class="moon"></div>
+        </div>
+    </header>
     <nav th:fragment="header">
         <h1 th:text="${title}">Smart Planner</h1>
         <ul class="nav">
