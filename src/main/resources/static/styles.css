@@ -43,3 +43,14 @@
 .dark > * {
     color: rgb(255, 255, 255);
   }
+
+@media only screen and (min-width: 970px) {
+  html {
+    width: 50%;
+  }
+
+  @media only screen and (max-width: 1300px) {
+    html {
+      display: none;
+    }
+  }
