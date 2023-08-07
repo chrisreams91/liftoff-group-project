@@ -3,6 +3,7 @@ package org.launchcode.liftoffgroupproject.models;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
@@ -29,9 +30,8 @@ public class Task extends AbstractEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
 
-    private TaskProgressEnum taskProgressEnum;
-
-
+    @Enumerated
+    private TaskProgressEnum taskProgressEnum = TaskProgressEnum.TODO;
 
     public Task(String name, String description, LocalDate startDate, LocalDate dueDate) {
         this.name = name;
