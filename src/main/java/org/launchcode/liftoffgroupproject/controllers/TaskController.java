@@ -46,12 +46,12 @@ public class TaskController {
 
 
     @PostMapping("delete")
-    public String processDeleteTaskForm(Integer id, String name, String description, LocalDate startDate, LocalDate dueDate){
+    public String processDeleteTaskForm(Integer id, String name, String description, String startDate, String dueDate){
         Task deleteTask = taskRepository.findById(id).get();
         deleteTask.setName(name);
         deleteTask.setDescription(description);
-        deleteTask.setStartDate(startDate);
-        deleteTask.setDueDate(dueDate);
+        deleteTask.setStartDate(LocalDate.parse(startDate));
+        deleteTask.setDueDate(LocalDate.parse(dueDate));
         taskRepository.deleteById(id);
 
         return"redirect:/list";
@@ -65,12 +65,12 @@ public class TaskController {
     }
 
     @PostMapping("edit")
-    public String processEditForm(Integer id, String name, String description, LocalDate startDate, LocalDate dueDate) {
+    public String processEditForm(Integer id, String name, String description, String startDate, String dueDate) {
         Task task = taskRepository.findById(id).get();
         task.setName(name);
         task.setDescription(description);
-        task.setStartDate(startDate);
-        task.setDueDate(dueDate);
+        task.setStartDate(LocalDate.parse(startDate));
+        task.setDueDate(LocalDate.parse(dueDate));
         taskRepository.save(task);
         return "redirect:/list";
     }
