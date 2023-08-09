@@ -29,7 +29,9 @@
               <td>
                   <a th:href="@{/edit/{id}(id=${task.id})}">Edit</a>
               </td>
-              <td><button class="btn btn-primary">Notify</button></td>
+              <td>
+                  <form method="post" action="/list/email"><button type="submit" class="btn btn-primary">Notify</button></form>
+              </td>
           </tr>
           </tbody>
       </table>

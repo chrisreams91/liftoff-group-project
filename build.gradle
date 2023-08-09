@@ -19,16 +19,17 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'mysql:mysql-connector-java:8.0.32'
+	implementation 'mysql:mysql-connector-java:8.0.33'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.security:spring-security-crypto'
-    implementation 'org.jetbrains:annotations:23.0.0'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.jetbrains:annotations:24.0.1'
+	implementation 'org.prompto:AwsClient:0.1.57'
+	implementation 'ru.r2cloud:ossClient:2.1'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation platform('software.amazon.awssdk:bom:2.5.29')
+	implementation platform('software.amazon.awssdk:bom:2.20.26')
 	implementation 'software.amazon.awssdk:sns'
 	implementation 'software.amazon.awssdk:s3'
-	implementation 'com.sun.mail:javax.mail'
 }
 
 tasks.named('test') {
