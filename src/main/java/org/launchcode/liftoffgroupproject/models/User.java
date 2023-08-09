@@ -18,14 +18,17 @@ public class User extends AbstractEntity {
     @NotNull
     private String pwHash;
 
+    private String profilePicture;
+
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     public User() {}
 
-    public User(String username, String password, String firstName) {
+    public User(String username, String password, String firstName, String profilePicture) {
         this.username = username;
         this.pwHash = encoder.encode(password);
         this.firstName = firstName;
+        this.profilePicture = profilePicture;
     }
 
     public String getUsername() {

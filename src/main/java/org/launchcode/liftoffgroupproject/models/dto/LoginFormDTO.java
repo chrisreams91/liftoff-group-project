@@ -18,6 +18,8 @@ public class LoginFormDTO {
     @Size(min = 5, max = 30, message = "Invalid password. Must be between 5 and 30 characters.")
     private String password;
 
+    private String profilePicture;
+
     public String getUsername() {
         return username;
     }
@@ -37,4 +39,8 @@ public class LoginFormDTO {
     public String getFirstName() {return firstName; }
 
     public void setFirstName(String firstName) {this.firstName = firstName; }
+
+    public String getProfilePicture() { return profilePicture; }
+
+    public void setProfilePicture(String profilePicture) { this.profilePicture = profilePicture; }
 }

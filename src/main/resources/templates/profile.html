@@ -11,12 +11,16 @@
         <img class="align-self-start mr-3" th:src="@{/images/user.png}" alt="Generic placeholder image">
         <div class="media-body">
             <h5 class="mt-0">Welcome Back</h5>
-            <p th:text="${user.firstName}">Name</p>
-            <p th:text="${user.username}">Username</p>
-<!--            email-->
+
+            <!-- get an individual username and first name-->
+<!--            <p th:text=${user.firstName}">Name</p>-->
+<!--            <p th:text="${user.username}">Username</p>-->
+
+
+            <!-- email-->
 <!--p            <p th:text="${user.email}">Email</p>-->
 
-
+<!--get all usernames and first names-->
             <ul class="list-group">
 <!--                <li class="list-group-item" th:each="user :${users}" th:text="${user}"></li>-->
                 <li class="list-group-item list-group-item-primary" th:each="user :${users}" th:text="${user.firstName}"></li>
@@ -24,15 +28,14 @@
             </ul>
 
             <br>
+
             <p> You are doing a great job completing your tasks!</p>
-<!--            if time allows add this:-->
-<!--            <p>You have 13 pending tasks</p>-->
             <a class="btn btn-dark" href="/list" role="button">View All Tasks</a>
+            <a class="btn btn-secondary" href="profile/picture" role="button">Change Profile Picture</a>
             <hr>
         </div>
     </div>
     <h3> Task Summary:</h3>
-<!--    list of task names here -->
     <ul class="list-group list-group-flush">
         <li class="list-group-item" th:each="task :${tasks}" th:text="${task}"></li>
     </ul>
