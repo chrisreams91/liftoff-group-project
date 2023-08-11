@@ -3,6 +3,7 @@ package org.launchcode.liftoffgroupproject.controllers;
 
 import org.launchcode.liftoffgroupproject.data.TaskRepository;
 import org.launchcode.liftoffgroupproject.models.Task;
+import org.launchcode.liftoffgroupproject.models.TaskProgressEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,7 @@ public class TaskController {
     @GetMapping("add")
     public String displayAddTaskForm(Model model) {
         model.addAttribute("task", new Task());
+        model.addAttribute("enums", TaskProgressEnum.values());
         return "add";
     }
 
@@ -65,12 +67,14 @@ public class TaskController {
     }
 
     @PostMapping("edit")
-    public String processEditForm(Integer id, String name, String description, String startDate, String dueDate) {
+    public String processEditForm(Integer id, String name, String description, String startDate, String dueDate, String taskProgressEnum) {
         Task task = taskRepository.findById(id).get();
         task.setName(name);
         task.setDescription(description);
         task.setStartDate(LocalDate.parse(startDate));
         task.setDueDate(LocalDate.parse(dueDate));
+        System.out.println(taskProgressEnum);
+        task.setTaskProgressEnum(TaskProgressEnum.fromDisplayString(taskProgressEnum));
         taskRepository.save(task);
         return "redirect:/list";
     }

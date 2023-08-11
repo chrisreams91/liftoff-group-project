@@ -14,4 +14,14 @@ public enum TaskProgressEnum {
     public String getDisplayStatus() {
         return displayStatus;
     }
+
+    public static TaskProgressEnum fromDisplayString(String displayString)
+    {
+        for(TaskProgressEnum myEnum : TaskProgressEnum.values()){
+            if(myEnum.getDisplayStatus().equals(displayString.trim().toUpperCase())){
+                return myEnum;}
+
+
+        } return null;
+    }
 }
