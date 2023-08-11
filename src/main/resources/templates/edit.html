@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
 <head th:replace="fragments :: head">
     <meta charset="UTF-8">
 </head>
 <body class="container body-content">
 <header th:replace="fragments :: darkToggle"></header>
 <nav th:replace="fragments :: header"></nav>
+
 <h1>Edit Task</h1>
 <form method="post" th:action="@{/edit}">
-    <input type="hidden" th:field="${task.id}" name="taskId" />
+    <input type="hidden" th:field="${task.id}" name="taskId"/>
+
     <div class="form-group">
         <label>Name
             <input th:field="${task.name}" class="form-control">
         </label>
         <p class="error" th:errors="${task.name}"></p>
     </div>
+
     <div class="form-group">
         <label>Description:
             <textarea th:field="${task.description}" class="form-control" rows="5" cols="20" name="description">
@@ -22,20 +26,37 @@
         </label>
         <p class="error" th:errors="${task.description}"></p>
     </div>
+
     <div class="form-group">
         <label>Start Date:
             <input type="date" th:field="*{task.startDate}" class="form-control">
         </label>
         <p class="error" th:errors="${task.startDate}"></p>
     </div>
+
     <label>Due Date:
         <input type="date" th:field="*{task.dueDate}" class="form-control">
     </label>
     <p class="error" th:errors="*{task.dueDate}"></p>
+
+
+    <div>
+        <label>Progress Status:
+            <select th:field="*{task.taskProgressEnum}" class="form-control form-select w-100">
+                <option th:each="enum : ${T(org.launchcode.liftoffgroupproject.models.TaskProgressEnum).values()}"
+                        th:value="${taskProgressEnum}"
+                        th:text="${enum.getDisplayStatus()}">
+                </option>
+            </select>
+        </label>
+
     </div>
+    </div>
+
     <div class="form-group">
         <input type="submit" value="Update" class="btn btn-success">
     </div>
+
 </form>
 </body>
 </html>

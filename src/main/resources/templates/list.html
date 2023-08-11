@@ -26,15 +26,15 @@
               <td th:text="${task.description}">description</td>
               <td th:text="${task.startDate}" >07/10/23</td>
               <td th:text="${task.dueDate}">07/14/23</td>
-              <td th:text="${task.taskProgressEnum}">progress</td>
+              <td th:text="${task.taskProgressEnum.getDisplayStatus()}">progress</td>
               <td>
 <!--                  <a th:href="@{/edit/{id}(id=${task.id})}">Edit</a>-->
 <!--                  <a th:href="@{/delete/{id}(id=${task.id})}">Delete</a>-->
 
-                  <form th:action="@{/edit}" method="get">
-                      <input type="hidden" name="taskId" th:value="${task.id}" />
-                      <button type="submit" class="btn btn-primary">Edit</button>
-                  </form>
+<!--                  <form th:action="@{/edit}" method="get">-->
+<!--                      <input type="hidden" name="taskId" th:value="${task.id}" />-->
+<!--                      <button type="submit" class="btn btn-primary">Edit</button>-->
+<!--                  </form>-->
 
 
                   <a th:href="@{/edit/{id}(id=${task.id})}">Edit</a>
