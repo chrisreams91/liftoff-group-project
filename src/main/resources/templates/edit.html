@@ -44,7 +44,7 @@
         <label>Progress Status:
             <select th:field="*{task.taskProgressEnum}" class="form-control form-select w-100">
                 <option th:each="enum : ${T(org.launchcode.liftoffgroupproject.models.TaskProgressEnum).values()}"
-                        th:value="${taskProgressEnum}"
+                        th:value="${enum}"
                         th:text="${enum.getDisplayStatus()}">
                 </option>
             </select>

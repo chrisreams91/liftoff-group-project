@@ -74,7 +74,7 @@ public class TaskController {
         task.setStartDate(LocalDate.parse(startDate));
         task.setDueDate(LocalDate.parse(dueDate));
         System.out.println(taskProgressEnum);
-        task.setTaskProgressEnum(TaskProgressEnum.fromDisplayString(taskProgressEnum));
+        task.setTaskProgressEnum(TaskProgressEnum.valueOf(taskProgressEnum));
         taskRepository.save(task);
         return "redirect:/list";
     }
