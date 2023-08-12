@@ -17,9 +17,14 @@ public class PublishTopic {
 
     public static void sendMessage() {
 
+        Task task = new Task();
+
+
         final String TOPIC = System.getenv("TOPIC");
 
-        String message = "Hey Shelvy";
+        task.setName("name test");
+
+        String message = task.getName();
         String topicArn = TOPIC;
         SnsClient snsClient = SnsClient.builder()
                 .region(Region.US_EAST_1)
