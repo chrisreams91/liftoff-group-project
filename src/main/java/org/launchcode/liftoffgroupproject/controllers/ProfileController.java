@@ -1,14 +1,15 @@
 package org.launchcode.liftoffgroupproject.controllers;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import org.launchcode.liftoffgroupproject.data.TaskRepository;
 import org.launchcode.liftoffgroupproject.data.UserRepository;
 import org.launchcode.liftoffgroupproject.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
@@ -27,10 +28,10 @@ public class ProfileController {
     private AuthenticationController authenticationController;
 
 
-//    public boolean assignProfilePicture(String profilePicture) {
+//    public string assignProfilePicture(String profilePicture) {
 //        if (profilePicture.equals("option1")) {
 //            return profilePicture.equals("/images/user.png");
-//        }
+//        }›
 //        else if (profilePicture.equals("option2")) {
 //            return profilePicture.equals("/images/owl.png");
 //        }
@@ -89,15 +90,33 @@ public class ProfileController {
 
 
    @GetMapping("picture")
-    public String displayChooseProfilePicture(Model model) {
-
-
+    public String displayChooseProfilePicture(Model model, User user) {
+       model.addAttribute("profilePicture", "Edit Profile Picture");
+       model.addAttribute("profilePicture", userRepository.findByUsername(user.getUsername()));
        return "picture";
    }
 
    @PostMapping("picture")
-    public String processChooseProfilePicture() {
-
+//    public String processChooseProfilePicture(@ModelAttribute("user") User user, String profilePicture, Model model) {
+   public String processChooseProfilePicture(User user, String profilePicture, Model model) {
+       User currentUser = userRepository.findByUsername(user.getUsername());
+       user.setProfilePicture(profilePicture);
+       userRepository.save(currentUser);
        return "redirect:/profile";
    }
+
+
+
+
+//   @ModelAttribute("profilePhotoList")
+//    public List<String> getProfilePhotoList() {
+//       List<String> profilePhotoList = new ArrayList<String>();
+//       profilePhotoList.add("/images/user.png");
+//       profilePhotoList.add("/images/owl.png");
+//       profilePhotoList.add("/images/panda.png");
+//       profilePhotoList.add("/images/zebra.png");
+//       return profilePhotoList;
+//   }
+
+
 }

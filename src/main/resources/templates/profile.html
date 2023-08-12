@@ -9,6 +9,7 @@
     <hr>
     <div class="media">
         <img class="align-self-start mr-3" th:src="@{/images/user.png}" alt="Generic placeholder image">
+<!--        <img class="align-self-start mr-3" th:text="${user.profilePicture}" alt="Generic placeholder image">-->
         <div class="media-body">
             <h5 class="mt-0">Welcome Back</h5>
 
@@ -25,6 +26,8 @@
 <!--                <li class="list-group-item" th:each="user :${users}" th:text="${user}"></li>-->
                 <li class="list-group-item list-group-item-primary" th:each="user :${users}" th:text="${user.firstName}"></li>
                 <li class="list-group-item list-group-item-success" th:each="user :${users}" th:text="${user.username}"></li>
+                <li class="list-group-item list-group-item-success" th:each="user :${users}" th:text="${user.profilePicture}"></li>
+
             </ul>
 
             <br>

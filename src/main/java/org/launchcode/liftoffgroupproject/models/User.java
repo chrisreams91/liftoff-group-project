@@ -40,4 +40,10 @@ public class User extends AbstractEntity {
     }
 
     public String getFirstName() { return firstName; }
+
+    public String getProfilePicture() { return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) { this.profilePicture = profilePicture;
+    }
 }

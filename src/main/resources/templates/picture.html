@@ -8,46 +8,75 @@
 
 <h3>Choose Profile Picture:</h3>
 
-<form method="post">
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="Radios1" value="option1" checked>
-        <label class="form-check-label" for="Radios1">
-            <img src="/images/user.png" class="rounded float-start" alt="Generic User Profile Picture">
+<form method="post" th:action="@{/profile/picture}">
+    <input type="hidden" th:field="${user.username}" name="username">
+    <div class="form-group">
+        <label> User Photo
+        <input type="radio" name="profilePicture" value="photo" class="form-control" checked>
         </label>
     </div>
 
-    <br>
-
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="Radios2" value="option2">
-        <label class="form-check-label" for="Radios2">
-            <img src="/images/owl.png" class="rounded float-start" alt="Owl User Profile Picture">
+    <div class="form-group">
+        <label> Panda
+            <input type="radio" name="profilePicture" value="panda" class="form-control">
         </label>
     </div>
 
-    <br>
-
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="Radios3" value="option3">
-        <label class="form-check-label" for="Radios3">
-            <img src="/images/panda.png" class="rounded float-start" alt="Panda User Profile Picture">
+    <div class="form-group">
+        <label> Owl
+            <input type="radio" name="profilePicture" value="owl" class="form-control">
         </label>
     </div>
 
-    <br>
-
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="Radios4" value="option4">
-        <label class="form-check-label" for="Radios4">
-            <img src="/images/zebra.png" class="rounded float-start" alt="Generic User Profile Picture">
+    <div class="form-group">
+        <label> Zebra
+            <input type="radio" name="profilePicture" value="zebra" class="form-control">
         </label>
     </div>
 
-    <br>
+
+<!--<form method="post" modelAttribute="user">-->
+<!--    <div class="form-check">-->
+<!--        <input class="form-check-input" type="radio" name="profilePicture" id="Radios1" value="option1" checked>-->
+<!--        <label class="form-check-label" for="Radios1">-->
+<!--&lt;!&ndash;            <img src="/images/user.png" class="rounded float-start" alt="Generic User Profile Picture">&ndash;&gt;-->
+<!--       Generic User-->
+<!--        </label>-->
+<!--    </div>-->
+
+
+<!--    <div class="form-check">-->
+<!--        <input class="form-check-input" type="radio" name="profilePicture" id="Radios2" value="option2">-->
+<!--        <label class="form-check-label" for="Radios2">-->
+<!--&lt;!&ndash;            <img src="/images/owl.png" class="rounded float-start" alt="Owl User Profile Picture">&ndash;&gt;-->
+<!--            Owl-->
+<!--        </label>-->
+<!--    </div>-->
+
+
+<!--    <div class="form-check">-->
+<!--        <input class="form-check-input" type="radio" name="profilePicture" id="Radios3" value="option3">-->
+<!--        <label class="form-check-label" for="Radios3">-->
+<!--&lt;!&ndash;            <img src="/images/panda.png" class="rounded float-start" alt="Panda User Profile Picture">&ndash;&gt;-->
+<!--            Panda-->
+<!--        </label>-->
+<!--    </div>-->
+
+
+<!--    <div class="form-check">-->
+<!--        <input class="form-check-input" type="radio" name="profilePicture" id="Radios4" value="option4">-->
+<!--        <label class="form-check-label" for="Radios4">-->
+<!--&lt;!&ndash;            <img src="/images/zebra.png" class="rounded float-start" alt="Generic User Profile Picture">&ndash;&gt;-->
+<!--        Zebra-->
+<!--        </label>-->
+<!--    </div>-->
+<!--    <br>-->
 
     <div class="form-group">
         <input type="submit" value="Submit" class="btn btn-success">
     </div>
     </form>
+
+
     </body>
 </html>
