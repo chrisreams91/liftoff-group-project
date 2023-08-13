@@ -1,7 +1,5 @@
 package org.launchcode.liftoffgroupproject.controllers;
 
-import java.util.List;
-import java.util.ArrayList;
 
 import org.launchcode.liftoffgroupproject.data.TaskRepository;
 import org.launchcode.liftoffgroupproject.data.UserRepository;
@@ -12,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "profile")
@@ -35,23 +32,6 @@ public class ProfileController {
        User user = authenticationController.getUserFromSession(session);
        model.addAttribute("first name", user.getFirstName());
        model.addAttribute("username", user.getUsername());
-
-
-
-
-//       Object userId = session.getAttribute("user");
-//       Optional<User> result = userRepository.findById((Integer) userId);
-//       User user = result.get();
-//
-//       model.addAttribute("tasks", user.getFirstName());
-
-//       User user = authenticationController.getUserFromSession(session);
-//
-//       model.addAttribute("first name", user.getFirstName());
-//       model.addAttribute("username", user.getUsername());
-//
-//       model.addAttribute("first name", authenticationController.getUserFromSession(session).getUsername());
-//       model.addAttribute("username", authenticationController.getUserFromSession(session).getFirstName());
 
 
        // get all users
