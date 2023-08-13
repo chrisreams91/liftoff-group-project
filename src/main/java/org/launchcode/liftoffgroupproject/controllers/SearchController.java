@@ -10,11 +10,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import static org.launchcode.liftoffgroupproject.controllers.ListController.columnChoices;
+import java.util.HashMap;
+
 
 @Controller
 @RequestMapping("search")
 public class SearchController {
+
+    static HashMap<String, String> columnChoices = new HashMap<>();
+
+    public SearchController () {
+
+        columnChoices.put("all", "All");
+        columnChoices.put("name", "Name");
+        columnChoices.put("description", "Description");
+        columnChoices.put("start date", "Start Date");
+        columnChoices.put("due date", "Due Date");
+
+    }
 
     @Autowired
     private TaskRepository taskRepository;
@@ -28,14 +41,16 @@ public class SearchController {
     @PostMapping("results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
         Iterable<Task> tasks;
-        if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")){
+        if (searchType.toLowerCase().equals("all")){
             tasks = taskRepository.findAll();
+            model.addAttribute("title", "All Tasks");
+
         } else {
             tasks = TaskData.findByColumnAndValue(searchType, searchTerm, taskRepository.findAll());
+            model.addAttribute("title", "Tasks with " + columnChoices.get(searchType) + ": " + searchTerm);
         }
-        model.addAttribute("title", "Tasks with " +  columnChoices.get(searchType) + ": " + searchTerm);
-        model.addAttribute("columns", columnChoices);
         model.addAttribute("tasks", tasks);
+        model.addAttribute("columns", columnChoices);
 
         return "search";
 

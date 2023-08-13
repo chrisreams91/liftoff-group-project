@@ -21,18 +21,6 @@ public class ListController {
     @Autowired
     private TaskRepository taskRepository;
 
-    static HashMap<String, String> columnChoices = new HashMap<>();
-
-    public ListController () {
-
-        columnChoices.put("all", "All");
-        columnChoices.put("description", "Description");
-        columnChoices.put("start date", "Start Date");
-        columnChoices.put("due date", "Due Date");
-        columnChoices.put("name", "Name");
-
-    }
-
 
     @RequestMapping("")
     public String list(Model model) {
@@ -40,18 +28,4 @@ public class ListController {
      return "list";
     }
 
-    @RequestMapping(value = "tasks")
-    public String listTasksByColumnAndValue(Model model, @RequestParam String column, @RequestParam String value) {
-        Iterable<Task> tasks;
-        if (column.toLowerCase().equals("all")){
-            tasks = taskRepository.findAll();
-            model.addAttribute("title", "All Tasks");
-        } else {
-            tasks = TaskData.findByColumnAndValue(column, value, taskRepository.findAll());
-            model.addAttribute("title", "Tasks with " + columnChoices.get(column) + ": " + value);
-        }
-        model.addAttribute("tasks", tasks);
-
-        return "list";
-    }
 }
