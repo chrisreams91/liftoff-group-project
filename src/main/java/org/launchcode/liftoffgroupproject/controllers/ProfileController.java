@@ -32,11 +32,18 @@ public class ProfileController {
    @GetMapping("")
        public String Profile(Model model, HttpSession session, String username, String firstName) {
 
-       Object userId = session.getAttribute("user");
-       Optional<User> result = userRepository.findById((Integer) userId);
-       User user = result.get();
+       User user = authenticationController.getUserFromSession(session);
+       model.addAttribute("first name", user.getFirstName());
+       model.addAttribute("username", user.getUsername());
 
-       model.addAttribute("tasks", user.getFirstName());
+
+
+
+//       Object userId = session.getAttribute("user");
+//       Optional<User> result = userRepository.findById((Integer) userId);
+//       User user = result.get();
+//
+//       model.addAttribute("tasks", user.getFirstName());
 
 //       User user = authenticationController.getUserFromSession(session);
 //
@@ -45,8 +52,6 @@ public class ProfileController {
 //
 //       model.addAttribute("first name", authenticationController.getUserFromSession(session).getUsername());
 //       model.addAttribute("username", authenticationController.getUserFromSession(session).getFirstName());
-
-
 
 
        // get all users
