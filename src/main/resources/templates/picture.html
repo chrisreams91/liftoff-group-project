@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8">
+</head>
+<body>
+<nav th:replace="fragments :: header"></nav>
+
+<h3>Choose Profile Picture:</h3>
+
+<form method="post" th:action="@{/profile/picture}">
+    <input type="hidden" th:field="${user.username}" name="username">
+    <div class="form-group">
+        <label>  <img src="/images/user.png"> Default
+        <input type="radio" name="profilePicture" value="/images/user.png" class="form-control" checked>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label> <img src="/images/blue.png"> Blue
+            <input type="radio" name="profilePicture" value="/images/blue.png" class="form-control">
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label> <img src="/images/red.png"> Red
+            <input type="radio" name="profilePicture" value="/images/red.png" class="form-control">
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label> <img src="/images/yellow.png"> Yellow
+            <input type="radio" name="profilePicture" value="/images/yellow.png" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-success">
+    </div>
+
+    </form>
+    </body>
+</html>

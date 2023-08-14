@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8">
+</head>
+    <body>
+    <nav th:replace="fragments :: header"></nav>
+<h1>User Profile</h1>
+    <hr>
+    <div class="media">
+        <img class="align-self-start mr-3" th:src="@{${user.profilePicture}}" alt="Profile Picture Image">
+        <div class="media-body">
+            <h5 class="mt-0">Welcome Back</h5>
+
+
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success" th:text=" 'Name: ' + ${user.firstName}"></li>
+                <li class="list-group-item list-group-item-primary" th:text=" 'Username: ' + ${user.username}"></li>
+
+            </ul>
+
+            <br>
+
+            <p> You are doing a great job completing your tasks!</p>
+            <a class="btn btn-dark" href="/list" role="button">View All Tasks</a>
+            <a class="btn btn-secondary" href="profile/picture" role="button">Change Profile Picture</a>
+            <hr>
+        </div>
+    </div>
+    <h3> Task Summary:</h3>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" th:each="task :${tasks}" th:text="${task}"></li>
+    </ul>
+    <br>
+    </body>
+</html>
