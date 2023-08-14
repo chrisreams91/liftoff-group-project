@@ -44,6 +44,17 @@
     color: rgb(255, 255, 255);
   }
 
+.card-container {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 18rem;
+  margin: 0 25px; /* Adjust the margin value to control the spacing */
+  border: 3px solid #83A0A8; /* Adjust the border color and thickness as desired */
+  border-radius: 5px; /* Optional: Add rounded corners to the border */
+}
 /*@media only screen and (min-width: 970px) {
   html {
     width: 50%;
