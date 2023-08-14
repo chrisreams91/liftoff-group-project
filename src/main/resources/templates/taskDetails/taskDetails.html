@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 
-<head th:replace="fragments :: head"></head>
+<head th:replace="fragments :: head">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
 
 <body>
 <div class="container">
@@ -15,6 +19,26 @@
         <li class="list-group-item"><span>Task ID: </span><span th:text="${task.id}">123456</span></li>
         <li class="list-group-item"><span>Start Date: </span><span th:text="${task.startDate}">2023-08-01</span></li>
         <li class="list-group-item"><span>Due Date: </span><span th:text="${task.dueDate}">2023-08-31</span></li>
+        <li class="list-group-item"></li>
+        <li th:switch="${task.taskProgressEnum}">
+            <div th:case="${T(org.launchcode.liftoffgroupproject.models.TaskProgressEnum).TODO}" class="bg-danger">
+                <span>Status: </span>
+                <span th:text="${task.taskProgressEnum.getDisplayStatus()}">To Do</span>
+            </div>
+
+            <div th:case="${T(org.launchcode.liftoffgroupproject.models.TaskProgressEnum).INPROGRESS}" class="bg-warning">
+                <span>Status: </span>
+                <span th:text="${task.taskProgressEnum.getDisplayStatus()}">In Progress</span>
+            </div>
+
+            <div th:case="${T(org.launchcode.liftoffgroupproject.models.TaskProgressEnum).COMPLETED}" class="bg-primary">
+                <span>Status: </span>
+                <span th:text="${task.taskProgressEnum.getDisplayStatus()}">Completed</span>
+            </div>
+        </li>
+
+<!--        <span>Status: </span>-->
+<!--        <span th:text="${task.taskProgressEnum.getDisplayStatus()}">To Do</span>-->
     </ol>
 </div>
 

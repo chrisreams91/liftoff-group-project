@@ -20,6 +20,18 @@
       inset -4px -4px 4px rgb(195 193 198 / 90%);
   }
 
+.red-bg {
+    color: red;
+}
+
+.green-bg {
+    color: green;
+}
+
+.blue-bg {
+    color: blue;
+}
+
 .dark {
     background-color: rgb(57, 57, 57);
     transition: 0.3s;
