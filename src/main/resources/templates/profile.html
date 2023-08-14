@@ -8,15 +8,15 @@
 <h1>User Profile</h1>
     <hr>
     <div class="media">
-        <tr th:each="user: ${users}">
         <img class="align-self-start mr-3" th:src="@{${user.profilePicture}}" alt="Profile Picture Image">
         <div class="media-body">
             <h5 class="mt-0">Welcome Back</h5>
 
-<!--get all usernames and first names-->
+
             <ul class="list-group">
-                <li class="list-group-item list-group-item-primary" th:each="user :${users}" th:text=" 'Name: ' + ${user.firstName}"></li>
-                <li class="list-group-item list-group-item-success" th:each="user :${users}" th:text=" 'Username: ' + ${user.username}"></li>
+                <li class="list-group-item list-group-item-success" th:text=" 'Name: ' + ${user.firstName}"></li>
+                <li class="list-group-item list-group-item-primary" th:text=" 'Username: ' + ${user.username}"></li>
+
             </ul>
 
             <br>

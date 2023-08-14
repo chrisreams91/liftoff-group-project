@@ -27,17 +27,13 @@ public class ProfileController {
 
 
    @GetMapping("")
-       public String Profile(Model model, HttpSession session, String username, String firstName) {
+       public String Profile(Model model, HttpSession session, String username, String firstName, String profilePicture) {
 
        User user = authenticationController.getUserFromSession(session);
        model.addAttribute("first name", user.getFirstName());
        model.addAttribute("username", user.getUsername());
-
-
-       // get all users
-       //this is working to get ALL users
-       model.addAttribute("users", userRepository.findAll());
-
+       model.addAttribute("profilePicture", profilePicture);
+       model.addAttribute("user", user);
 
        //list all tasks
        model.addAttribute("tasks", taskRepository.findAll());
