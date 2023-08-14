@@ -7,7 +7,7 @@ import software.amazon.awssdk.services.sns.model.PublishRequest;
 import software.amazon.awssdk.services.sns.model.PublishResponse;
 import software.amazon.awssdk.services.sns.model.SnsException;
 
-public class PublishTopic {
+public class PublishTopic extends Task {
 
     public static final String AWS_ACCESS_KEY_ID = System.getenv("AWS_ACCESS_KEY_ID");
     public static final String AWS_SECRET_ACCESS_KEY = System.getenv("AWS_SECRET_ACCESS_KEY");
@@ -15,16 +15,16 @@ public class PublishTopic {
     public static final String TOPIC = System.getenv("TOPIC");
 
 
-    public static void sendMessage() {
+    public static void sendMessage (String name, String description, String startDate, String dueDate) {
 
         Task task = new Task();
 
 
         final String TOPIC = System.getenv("TOPIC");
 
-        task.setName("name test");
+//        task.setName("name test");
 
-        String message = task.getName();
+        String message = "Hi " + name + " your task " + description + " start date is " + startDate+ " and your due date is " +dueDate;
         String topicArn = TOPIC;
         SnsClient snsClient = SnsClient.builder()
                 .region(Region.US_EAST_1)

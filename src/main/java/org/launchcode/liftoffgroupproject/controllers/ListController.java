@@ -3,14 +3,13 @@ package org.launchcode.liftoffgroupproject.controllers;
 import org.launchcode.liftoffgroupproject.data.TaskRepository;
 import org.launchcode.liftoffgroupproject.data.UserRepository;
 import org.launchcode.liftoffgroupproject.models.PublishTopic;
+import org.launchcode.liftoffgroupproject.models.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,9 +31,17 @@ public class ListController {
      return "list";
     }
 
-    @PostMapping("/{email}")
-    public String email() {
-       PublishTopic.sendMessage();
+    @GetMapping("list/{taskId}")
+    public String getId(Model model , @PathVariable int taskId){
+        model.addAttribute("task", "task");
+        model.addAttribute("task", taskRepository.findById(taskId));
+        return "list";
+    }
+
+    @PostMapping("/{taskId}")
+    public String email(@PathVariable int taskId) {
+        Task task = taskRepository.findById(taskId).get();
+       PublishTopic.sendMessage(task.getName(),task.getDescription(),task.getStartDate(),task.getDueDate());
         return "redirect:/list";
     }
 }
