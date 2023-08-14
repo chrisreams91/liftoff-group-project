@@ -1,73 +1,102 @@
- <!DOCTYPE html>
- <html lang="en" xmlns:th="https://www.thymeleaf.org/">
- <head th:replace="fragments :: head">
-     <meta charset="UTF-8">
-
- </head>
- <body class="container body-content">
-    <header th:fragment="darkToggle">
-        <div class="switch">
-            <div class="flicker"></div>
-            <div class="moon"></div>
-        </div>
-    </header>
-
-    <nav th:fragment="header">
-        <ul class="nav">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/list">Tasks</a></li>
-            <li class="nav-item"><a class="nav-link" href="/add">Add Task</a></li>
-            <!--        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>-->
-            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
-        </ul>
-    </nav>
-
-<h1>About Zen</h1>
-
-<head>
-    <title>User Profile</title>
-    <!-- Link Bootstrap CSS -->
-    <link rel="stylesheet" href="path/to/bootstrap.min.css">
-    <!-- Optional: Additional CSS if required -->
-    <link rel="stylesheet" href="path/to/custom.css">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8">
 </head>
-<body>
+
+<body class="container body-content">
+<nav th:replace="fragments :: header"></nav>
+<br>
+<h1>About Zen</h1>
 <div class="container">
     <div class="row">
-<!--        <div class="col-md-6 offset-md-3">-->
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title">Card Title</h2>
-                    <div class="row">
+        <section>
+            <p>Zen was created for you to discover tranquility and efficiency in your daily tasks.
+                You can experience a serene way to manage your to-dos, effortlessly track their progress, and effortlessly prioritize what matters most.
+                Embrace a journey of heightened productivity and harmony as you navigate your tasks in a state of Zen-like clarity.
+                Elevate your task management and unlock a world of calm accomplishment with Zen.</p>
+        </section>
+    </div>
+</div>
+<br>
 
-                        <div class="col-md-8">
-                            <h4>Name: John Doe</h4>
-                            <p>Email: johndoe@example.com</p>
-                            <p>Location: New York, USA</p>
-                            <p>About: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
+<h2>About Us</h2>
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4>Name: John Doe</h4>
+                        <p>Email: johndoe@example.com</p>
+                        <p>Location: New York, USA</p>
+                        <p>About: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                 </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title">Card Title</h2>
-                        <div class="row">
-
-                            <div class="col-md-8">
-                                <h4>Name: John Doe</h4>
-                                <p>Email: johndoe@example.com</p>
-                                <p>Location: New York, USA</p>
-                                <p>About: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                    </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Link Bootstrap JavaScript (jQuery and Popper.js dependencies included) -->
-<script src="path/to/bootstrap.min.js"></script>
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4>Name: John Doe</h4>
+                        <p>Email: johndoe@example.com</p>
+                        <p>Location: New York, USA</p>
+                        <p>About: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4>Name: John Doe</h4>
+                        <p>Email: johndoe@example.com</p>
+                        <p>Location: New York, USA</p>
+                        <p>About: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4>Name: John Doe</h4>
+                        <p>Email: johndoe@example.com</p>
+                        <p>Location: New York, USA</p>
+                        <p>About: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4>Name: John Doe</h4>
+                        <p>Email: johndoe@example.com</p>
+                        <p>Location: New York, USA</p>
+                        <p>About: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>
