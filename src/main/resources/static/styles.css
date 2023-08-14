@@ -2,7 +2,7 @@
     width: 80px;
     height: 40px;
     border-radius: 20px;
-    background-color: rgb(39, 38, 38);
+    background-color: #b0c4de;
     position: relative;
   }
 
@@ -21,7 +21,7 @@
   }
 
 .dark {
-    background-color: rgb(57, 57, 57);
+    background-color: #596e79;
     transition: 0.3s;
 
   }
@@ -41,7 +41,7 @@
   }
 
 .dark > * {
-    color: rgb(255, 255, 255);
+    color: #f0ece2;
   }
 
 /*@media only screen and (min-width: 970px) {

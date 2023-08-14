@@ -16,6 +16,8 @@ public class User extends AbstractEntity {
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
+    private boolean isDarkTheme;
+
     public User() {}
 
     public User(String username, String password) {
@@ -31,4 +33,11 @@ public class User extends AbstractEntity {
         return encoder.matches(password, pwHash);
     }
 
+    public boolean isDarkTheme() {
+        return isDarkTheme;
+    }
+
+    public void setDarkTheme(boolean darkTheme) {
+        isDarkTheme = darkTheme;
+    }
 }
