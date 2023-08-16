@@ -20,14 +20,16 @@ public class SearchController {
     static HashMap<String, String> columnChoices = new HashMap<>();
 
     public SearchController () {
-
         columnChoices.put("all", "All");
         columnChoices.put("name", "Name");
         columnChoices.put("description", "Description");
         columnChoices.put("start date", "Start Date");
         columnChoices.put("due date", "Due Date");
-
     }
+
+
+
+
 
     @Autowired
     private TaskRepository taskRepository;
