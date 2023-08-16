@@ -5,14 +5,9 @@ import org.launchcode.liftoffgroupproject.data.UserRepository;
 import org.launchcode.liftoffgroupproject.models.PublishTopic;
 import org.launchcode.liftoffgroupproject.models.Task;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 @RequestMapping(value = "list")
