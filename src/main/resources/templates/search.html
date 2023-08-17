@@ -3,6 +3,7 @@
 <head th:replace="fragments :: head">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="scripts.js"></script>
 </head>
 <body>
 
@@ -27,8 +28,8 @@
       <label>All<input type="radio" name="searchType" value="all"/></label>
       <label>Name<input type="radio" name="searchType" value="name"/></label>
       <label>Description<input type="radio" name="searchType" value="description"/></label>
-      <label>Start Date<input type="radio" name="searchType" value="start date"/></label>
-      <label >Due Date<input type="radio" name="searchType" value="due date"/></label>
+      <label>Start Date<input type="radio" id="date" name="searchType" value="start date"/></label>
+      <label >Due Date<input type="radio" id="date" name="searchType" value="due date"/></label>
     </p>
 
     <p>
