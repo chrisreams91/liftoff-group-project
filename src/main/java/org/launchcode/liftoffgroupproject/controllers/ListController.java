@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+
 @Controller
 @RequestMapping(value = "list")
 public class ListController {
@@ -36,7 +38,7 @@ public class ListController {
     @PostMapping("/{taskId}")
     public String email(@PathVariable int taskId) {
         Task task = taskRepository.findById(taskId).get();
-       PublishTopic.sendMessage(task.getName(),task.getDescription(),task.getStartDate(),task.getDueDate());
+       PublishTopic.sendMessage(task.getName(),task.getDescription(),task.getStartDate().toString(),task.getDueDate().toString());
         return "redirect:/list";
     }
 }

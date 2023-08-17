@@ -104,4 +104,3 @@ public class Task extends AbstractEntity {
         }
 
     }
-}
