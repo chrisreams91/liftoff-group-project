@@ -2,7 +2,7 @@
     width: 80px;
     height: 40px;
     border-radius: 20px;
-    background-color: #b0c4de;
+    background-color: rgb(39, 38, 38);
     position: relative;
   }
 
@@ -33,7 +33,7 @@
 }
 
 .dark {
-    background-color: #596e79;
+    background-color: rgb(57, 57, 57);
     transition: 0.3s;
 
   }

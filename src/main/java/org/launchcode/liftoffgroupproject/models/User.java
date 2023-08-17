@@ -22,7 +22,7 @@ public class User extends AbstractEntity {
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    private boolean isDarkTheme;
+    private boolean darkTheme;
 
     public User() {}
 
@@ -42,12 +42,13 @@ public class User extends AbstractEntity {
     }
 
     public boolean isDarkTheme() {
-        return isDarkTheme;
+        return darkTheme;
     }
 
     public void setDarkTheme(boolean darkTheme) {
-        isDarkTheme = darkTheme;
+        this.darkTheme = darkTheme;
     }
+
     public String getFirstName() { return firstName; }
 
     public String getProfilePicture() { return profilePicture;

@@ -55,4 +55,13 @@ public class ProfileController {
        userRepository.save(user);
        return "redirect:/profile";
    }
+
+   @PostMapping("update-theme")
+    public String updateTheme(HttpSession session, @RequestParam boolean darkTheme){
+       User user = authenticationController.getUserFromSession(session);
+       user.setDarkTheme(darkTheme);
+       userRepository.save(user);
+       return "redirect:/profile";
+   }
+
 }
