@@ -1,9 +1,8 @@
-  const dateRadio = document.getElementById('date')
+ const dateRadio = document.getElementById('date')
 
-  document.addEventListener('click', (event) => {
-      if(event.target && event.target.matches('date')){
+  dateRadio.addEventListener('click', (event) => {
           const keyword = document.getElementById("searchTerm");
             keyword.type = "date";
-          });
-        }
-  })
+            console.log("test");
+
+        });
