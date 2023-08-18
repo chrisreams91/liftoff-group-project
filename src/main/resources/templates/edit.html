@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
 </head>
 <body class="container body-content">
-<header th:replace="fragments :: darkToggle"></header>
 <nav th:replace="fragments :: header"></nav>
-
 <h1>Edit Task</h1>
 <form method="post" th:action="@{/edit}">
     <input type="hidden" th:field="${task.id}" name="taskId"/>
