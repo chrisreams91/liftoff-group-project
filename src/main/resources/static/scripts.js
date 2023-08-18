@@ -1,4 +1,4 @@
- const dateRadio = document.getElementById('date')
+const dateRadio = document.getElementById('date')
 
     console.log("test");
   dateRadio.addEventListener('click', (event) => {
