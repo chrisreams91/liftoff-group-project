@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -26,7 +27,28 @@
               <td th:text="${task.description}">description</td>
               <td th:text="${task.startDate}" >07/10/23</td>
               <td th:text="${task.dueDate}">07/14/23</td>
-              <td th:text="${task.taskProgressEnum.getDisplayStatus()}">progress</td>
+<!--              <td th:text="${task.taskProgressEnum.getDisplayStatus()}">progress-->
+
+                  <td th:block th:switch="${task.taskProgressEnum}">
+
+                      <li th:case="${T(org.launchcode.liftoffgroupproject.models.TaskProgressEnum).TODO}" class="badge text-light bg-primary text-uppercase">
+<!--                          <span>Status: </span>-->
+                          <span th:text="${task.taskProgressEnum.getDisplayStatus()}">To Do</span>
+                      </li>
+
+                      <li th:case="${T(org.launchcode.liftoffgroupproject.models.TaskProgressEnum).INPROGRESS}" class="badge text-light bg-secondary text-uppercase">
+<!--                          <span>Status: </span>-->
+                          <span th:text="${task.taskProgressEnum.getDisplayStatus()}">In Progress</span>
+                      </li>
+
+                      <li th:case="${T(org.launchcode.liftoffgroupproject.models.TaskProgressEnum).COMPLETED}" class="badge text-light bg-success text-uppercase">
+<!--                          <span>Status: </span>-->
+                          <span th:text="${task.taskProgressEnum.getDisplayStatus()}">Completed</span>
+                      </li>
+
+                  </tdth:block>
+
+              </td>
               <td>
 
                   <a th:href="@{/edit/{id}(id=${task.id})}">Edit</a>
