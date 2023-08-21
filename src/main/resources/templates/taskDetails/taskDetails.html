@@ -15,26 +15,26 @@
 <div class="container body-content">
     <h1 class="centered" th:text="${task.name}">Task Title</h1>
     <ol type="circle" class="list-group">
-        <li class="list-group-item active">
-            <span>Details: </span>
-            <span th:text="${task.description}">Task Description</span>
+        <li class="list-group-item list-group-item-dark">
+            <span>Task ID: </span>
+            <span th:text="${task.id}">123</span>
         </li>
-        <li class="list-group-item"><span>Task ID: </span><span th:text="${task.id}">123456</span></li>
+        <li class="list-group-item"><span>Details: </span><span th:text="${task.description}">asdfadf</span></li>
         <li class="list-group-item"><span>Start Date: </span><span th:text="${task.startDate}">2023-08-01</span></li>
         <li class="list-group-item"><span>Due Date: </span><span th:text="${task.dueDate}">2023-08-31</span></li>
 
         <th:block th:switch="${task.taskProgressEnum}" class="list-group-item">
-            <li th:case="${T(org.launchcode.liftoffgroupproject.models.TaskProgressEnum).TODO}" class="bg-info list-group-item">
+            <li th:case="${T(org.launchcode.liftoffgroupproject.models.TaskProgressEnum).TODO}" class="list-group-item list-group-item-primary">
                 <span>Status: </span>
                 <span th:text="${task.taskProgressEnum.getDisplayStatus()}">To Do</span>
             </li>
 
-            <li th:case="${T(org.launchcode.liftoffgroupproject.models.TaskProgressEnum).INPROGRESS}" class="bg-warning list-group-item">
+            <li th:case="${T(org.launchcode.liftoffgroupproject.models.TaskProgressEnum).INPROGRESS}" class="list-group-item list-group-item-secondary">
                 <span>Status: </span>
                 <span th:text="${task.taskProgressEnum.getDisplayStatus()}">In Progress</span>
             </li>
 
-            <li th:case="${T(org.launchcode.liftoffgroupproject.models.TaskProgressEnum).COMPLETED}" class="bg-success list-group-item">
+            <li th:case="${T(org.launchcode.liftoffgroupproject.models.TaskProgressEnum).COMPLETED}" class="list-group-item list-group-item-success">
                 <span>Status: </span>
                 <span th:text="${task.taskProgressEnum.getDisplayStatus()}">Completed</span>
             </li>
