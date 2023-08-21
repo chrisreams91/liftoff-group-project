@@ -5,11 +5,29 @@
         <div class="container">
             <h1>Zen</h1>
             <nav th:replace="fragments :: header"></nav>
-            <div class="btn-group-vertical btn-group-lg">
-                <a class="btn btn-primary" href="list" role="button">Tasks</a>
-                <a class="btn btn-danger" href="" role="button">Problems</a>
-                <a class="btn btn-secondary" href="" role="button">Doing</a>
-                <a class="btn btn-success" href="" role="button">Done</a>
+
+            <!-- First image -->
+            <div class="bg-image d-flex justify-content-center align-items-center"
+                    style="background-image: url('/images/green-ferns.png');
+                    height: 100vh;">
+                <p>
+                    <a class="btn btn-light" href="/list" role="button">Tasks</a>
+                    <a class="btn btn-light btn-lg" href="/add" role="button">Get Started</a>
+                    <a class="btn btn-light" href="/profile" role="button">Profile</a>
+                </p>
+            </div>
+            <!-- Second image -->
+            <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
+                 style="background-image: url('/images/sand.png');">
+                <h1 class="mb-3 h2">All your tasks in one peaceful place</h1>
+                <p>
+                    Discover tranquility and efficiency in your daily tasks with Zen.
+                    Experience a serene way to manage your to-dos, effortlessly track their progress,
+                    and effortlessly prioritize what matters most. Embrace a journey of heightened productivity
+                    and harmony as you navigate your tasks in a state of Zen-like clarity. Elevate your task
+                    management and unlock a world of calm accomplishment with Zen.
+                </p>
+                </div>
             </div>
         </div>
     </body>
