@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="scripts.js"></script>
+</head>
+<body>
+
+
+
+<div class="container body-content">
+
+  <nav th:fragment="header">
+    <ul class="nav">
+      <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="/list">Tasks</a></li>
+      <li class="nav-item"><a class="nav-link" href="/add">Add Task</a></li>
+      <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
+      <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <form th:action="@{/search/results}" method = "post">
+    <h2>Search by:</h2>
+
+    <p>
+      <label>All<input checked="checked" type="radio" name="searchType" value="all"/></label>
+      <label>Name<input type="radio" name="searchType" value="name"/></label>
+      <label>Description<input type="radio" name="searchType" value="description"/></label>
+      <label>Start Date<input type="radio" id="date" name="searchType" value="start date"/></label>
+      <label >Due Date<input type="radio" name="searchType" value="due date"/></label>
+    </p>
+
+    <p>
+      <label for="searchTerm">Keyword:</label>
+      <input type="text" name="searchTerm" id="searchTerm" />
+    </p>
+
+    <input type="submit" value="Search" />
+  </form>
+  <hr />
+</div>
+
+
+
+  <div class="container">
+    <h1 th:text="${title}">Smart Planner</h1>
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name:</th>
+        <th scope="col">Description</th>
+        <th scope="col">StartDate:</th>
+        <th scope="col">DueDate:</th>
+        <th scope="col">Actions:</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="task: ${tasks}">
+        <th scope="row"><a th:text="${task.name}"></a></th>
+        <td th:text="${task.description}">description</td>
+        <td th:text="${task.startDate}" >07/10/23</td>
+        <td th:text="${task.dueDate}">07/14/23</td>
+        <td>
+          <a th:href="@{/edit/{id}(id=${task.id})}">Edit</a>
+          <a th:href="@{/delete/{id}(id=${task.id})}">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
